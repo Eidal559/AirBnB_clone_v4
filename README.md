@@ -139,7 +139,3 @@ Execute the following command in the root directory to run the unit tests:
 
 ```bash
 python3 -m unittest discover tests
-
-## AUTHOR
-
-Ladie juarbe gonzalez
