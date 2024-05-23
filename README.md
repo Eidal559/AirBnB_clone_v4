@@ -1,141 +1,176 @@
-# HBNB - The Console
+# The AirBnB Clone Project
+
 ![logo Image](image/hbnb_logo.jpg "An example image stored in the repository")
 
+## Project Description
+This is the first part of the AirBnB clone project where we worked on the backend of the project whiles interfacing it with a console application with the help of the cmd module in python.
 
-## Description
+Data (python objects) generated are stored in a json file and can be accessed with the help of the json module in python
 
-The HBNB project embarks on recreating the AirBnB experience through a clone web application. This repository focuses on the backend portion, specifically on developing a command-line console that serves as an interface for data management. The console enables CRUD operations—Create, Read, Update, Delete—on objects and ensures data persistence through JSON serialization.
+## Description of the command interpreter:
+The interface of the application is just like the Bash shell except that this has a limited number of accepted commands that were solely defined for the purposes of the usage of the AirBnB website.
 
-## Table of Contents
+This command line interpreter  serves as the frontend of the web app where users can interact with the backend which was developed with python OOP programming.
 
-- [HBNB - The Console](#hbnb---the-console)
-  - [Description](#description)
-  - [Table of Contents](#table-of-contents)
-  - [Repository Contents](#repository-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-    - [Console Commands](#console-commands)
-    - [Examples](#examples)
-  - [Testing](#testing)
-  - [Contributors](#contributors)
-  - [License](#license)
+Some of the commands available are:
+- show
+- create
+- update
+- destroy
+- count
 
-## Repository Contents
+And as part of the implementation of the command line interpreter coupled with the backend and file storage system, the folowing actions can be performed:
+-   Creating new objects (ex: a new User or a new Place)
+-   Retrieving an object from a file, a database etc…
+-   Doing operations on objects (count, compute stats, etc…)
+-   Updating attributes of an object
+-   Destroying an object
 
-| File/Directory        | Location           | Description                                                            |
-|-----------------------|--------------------|------------------------------------------------------------------------|
-| `AUTHORS`             | Root               | A file listing individuals who have contributed to the project.       |
-| `/models`             | Root               | Directory containing classes used throughout the project.             |
-| `base_model.py`       | `/models`          | Defines the BaseModel class, the foundational class for all other models. |
-| `/engine`             | `/models`          | Directory housing the storage mechanisms.                             |
-| `file_storage.py`     | `/models/engine`   | Manages serialization and deserialization of objects to and from JSON.|
-| `db_storage.py`       | `/models/engine`   | Handles MySQL database storage operations.                            |
-| `/tests`              | Root               | Contains unit tests for all classes and storage engines.              |
-| `console.py`          | Root               | The command-line interface for the project.                           |
+## How to start it
+These instructions will get you a copy of the project up and running on your local machine (Linux distro) for development and testing purposes.
 
-## Installation
+## Installing
 
-Follow these steps to get a copy of the project up and running on your local machine for development and testing purposes:
+You will need to clone the repository of the project from Github. This will contain the simple shell program and all of its dependencies.
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/Eidal559/holbertonschool-AirBnB_clone_v2.git
-    ```
-
-2. Navigate into the cloned repository directory:
-    ```bash
-    cd  /holbertonschool-AirBnB_clone_v2/
-    ```
-
-## Usage
-
-### Console Commands
-
-After launching the console, you can use the following commands:
-
-- `create`: Creates a new instance of BaseModel, saves it to the JSON file, and prints the id.
-- `show`: Prints the string representation of an instance based on class name and id.
-- `destroy`: Deletes an instance based on class name and id.
-- `all`: Prints all string representation of instances based or not on the class name.
-- `update`: Updates an instance based on class name and id by adding or updating an attribute.
-
-### Examples
-
-- 1. Creating a new BaseModel instance:
-    ```bash
-    (hbnb) create BaseModel
-    ```
-    ```bash
-    (hbnb) create BaseModel
-    9e2f4018-36b3-41de-b703-74e58fbe2c13
-    ```
-
-- 2. Showing an existing BaseModel instance:
-    ```bash
-    (hbnb) show BaseModel 9e2f4018-36b3-41de-b703-74e58fbe2c13
-    ```
-    ```bash
-    (hbnb) show BaseModel 9e2f4018-36b3-41de-b703-74e58fbe2c13
-    [BaseModel] (9e2f4018-36b3-41de-b703-74e58fbe2c13) 
-    {'id': '9e2f4018-36b3-41de-b703-74e58fbe2c13', 'created_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895), 
-    'updated_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988905)}
-    ```
-- 3. Updating an attribute of an instance:
-    ```bash
-    (hbnb) update BaseModel 1234-1234-1234 email "hbnb@holbertonschool.com"
-    ```
-- 4. Destroy an existing BaseModel instance: 
-    ```shell
-    (hbnb) destroy BaseModel 9e2f4018-36b3-41de-b703-74e58fbe2c13
-    (hbnb) show BaseModel 9e2f4018-36b3-41de-b703-74e58fbe2c13
-    ** no instance found **
-    ```
-
-## Alternative Syntax
-
-### Example 0: Show all User objects
-
-**Usage**: `<class_name>.all()`
-
-```shell
-(hbnb) User.all()
-["[User] (99f45908-1d17-46d1-9dd2-b7571128115b) {'updated_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895), 'id': '99f45908-1d17-46d1-9dd2-b7571128115b', 'created_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895)}", "[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895), 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'created_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895)}"]
 ```
+git clone https://github.com/GoldenHatchet15/holbertonschool-AirBnB_clone.git
+```
+After cloning the repository you will have a folder called AirBnB_clone. In here there will be several files that allow the program to work.
 
-### Example 1: Destroy a User
+> /console.py : The main executable of the project, the command interpreter.
+>
+> models/engine/file_storage.py: Class that serializes instances to a JSON file and deserializes JSON file to instances
+> 
+> models/__ init __.py:  A unique `FileStorage` instance for the application
+> 
+> models/base_model.py: Class that defines all common attributes/methods for other classes.
+> 
+> models/user.py: User class that inherits from BaseModel
+> 
+>models/state.py: State class that inherits from BaseModel
+>
+>models/city.py: City class that inherits from BaseModel
+>
+>models/amenity.py: Amenity class that inherits from BaseModel
+>
+>models/place.py: Place class that inherits from BaseModel
+>
+>models/review.py: Review class that inherits from BaseModel
 
-**Usage**: `<class_name>.destroy(<_id>)`
 
-```shell
-(hbnb) User.destroy("99f45908-1d17-46d1-9dd2-b7571128115b")
+
+## How to use it
+It can work in two different modes:
+
+
+**Interactive** and **Non-interactive**.
+
+In **Interactive mode**, the console will display a prompt (hbnb) indicating that the user can write and execute a command. After the command is run, the prompt will appear again a wait for a new command. This can go indefinitely as long as the user does not exit the program.
+
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
 (hbnb) 
-(hbnb) User.all()
-["[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895), 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'created_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895)}"]
-```
-### Example 2: Update User (by attribute)
-
-**Usage**: `<class_name>.update(<_id>, <attribute_name>, <attribute_value>)`
-
-```shell
-(hbnb) User.update("98bea5de-9cb0-4d78-8a9d-c4de03521c30", "name", "Todd the Toad")
 (hbnb) 
-(hbnb) User.all()
-["[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895), 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'name': 'Todd the Toad', 'created_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895)}"]
+(hbnb) quit
+$
 ```
-### Example 3: Update User (by dictionary)
 
-**Usage**: `<class_name>.update(<_id>, <dictionary_of_attributes>)`
+In **Non-interactive mode**, the shell will need to be run with a command input piped into its execution so that the command is run as soon as the Shell starts. In this mode no prompt will appear, and no further input will be expected from the user.
 
-```shell
-(hbnb) User.update("98bea5de-9cb0-4d78-8a9d-c4de03521c30", {'name': 'Fred the Frog', 'age': 9})
+
+```
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
 (hbnb) 
-(hbnb) User.all()
-["[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895), 'name': 'Fred the Frog', 'age': 9, 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'created_at': datetime.datetime(2024, 3, 22, 19, 7, 15, 988895)}"]
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
 ```
 
-## Testing
+## Format of Command Input
 
-Execute the following command in the root directory to run the unit tests:
+In order to give commands to the console, these will need to be piped through an echo in case of  **Non-interactive mode**.
 
-```bash
-python3 -m unittest discover tests
+In  **Interactive Mode**  the commands will need to be written with a keyboard when the prompt appears and will be recognized when an enter key is pressed (new line). As soon as this happens, the console will attempt to execute the command through several means or will show an error message if the command didn't run successfully. In this mode, the console can be exited using the **CTRL + D** combination,  **CTRL + C**, or the command **quit** or **EOF**.
+
+## Arguments
+
+Most commands have several options or arguments that can be used when executing the program. In order for the Shell to recognize those parameters, the user must separate everything with spaces.
+
+Example:
+
+```
+
+user@ubuntu:~/AirBnB$ ./console.py
+(hbnb) create BaseModel
+49faff9a-6318-451f-87b6-910505c55907
+user@ubuntu:~/AirBnB$ ./console.py
+
+```
+
+or
+
+```
+user@ubuntu:~/AirBnB$ ./console.py $ echo "create BaseModel" | ./console.py
+(hbnb)
+e37ebcd3-f8e1-4c1f-8095-7a019070b1fa
+(hbnb)
+user@ubuntu:~/AirBnB$ ./console.py
+```
+
+## Available commands and what they do
+
+The recognizable commands by the interpreter are the following:
+
+|Command| Description |
+|--|--|
+| **quit or EOF** | Exits the program |
+| **Usage** | By itself |
+| **-----** | **-----** |
+| **help** | Provides a text describing how to use a command.  |
+| **Usage** | By itself --or-- **help <command\>** |
+| **-----** | **-----** |
+| **create** | Creates a new instance of a valid `Class`, saves it (to the JSON file) and prints the `id`.  Valid classes are: BaseModel, User, State, City, Amenity, Place, Review. |
+| **Usage** | **create <class name\>**|
+| **-----** | **-----** |
+| **show** | Prints the string representation of an instance based on the class name and `id`  |
+| **Usage** | **show <class name\> <id\>** --or-- **<class name\>.show(<id\>)**|
+| **-----** | **-----** |
+| **destroy** | Deletes an instance based on the class name and `id` (saves the change into a JSON file).  |
+| **Usage** | **destroy <class name\> <id\>** --or-- **<class name>.destroy(<id>)** |
+| **-----** | **-----** |
+| **all** | Prints all string representation of all instances based or not on the class name.  |
+| **Usage** | By itself or **all <class name\>** --or-- **<class name\>.all()** |
+| **-----** | **-----** |
+| **update** | Updates an instance based on the class name and `id` by adding or updating attribute (saves the changes into a JSON file).  |
+| **Usage** | **update <class name\> <id\> <attribute name\> "<attribute value\>"** ---or--- **<class name\>.update(<id\>, <attribute name\>, <attribute value\>)** --or-- **<class name\>.update(<id\>, <dictionary representation\>)**|
+| **-----** | **-----** |
+| **count** | Retrieve the number of instances of a class.  |
+| **Usage** | **<class name\>.count()** |
+
+## Authors
+
+Ladie juarbe
+
+## License
+Public Domain. No copy write protection.
